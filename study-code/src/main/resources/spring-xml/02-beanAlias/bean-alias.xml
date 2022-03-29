@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- import 引入01中的bean-helloworld.xml -->
+    <import resource="classpath*:/spring-xml/01-start/bean-helloworld.xml"/>
+
+    <!-- 通过id指定bean名称 -->
+    <bean id="student1" class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <!-- 通过name指定bean名称 -->
+    <bean name="student2" class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <!-- id和name同时存在，id为bean名称，name为别名，如果id和name相同则没有别名 -->
+    <bean id="student3" name="student3-A" class="com.huangxl.springstudy.studycode.code02.Student"/>
+    <bean id="student3-B" name="student3-B" class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <!-- 通过id指定bean名称，name指定多个别名，多个别名之间用逗号，分号或者空格分隔 -->
+    <bean id="student4" name="student4-A student4-B" class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <!-- 通过name指定多个名称，第一个为bean名称，剩下的为bean别名 -->
+    <bean  name="student5 student5-A,student5-B;student5-C" class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <!--id和name都不指定是，bean名称为：
+    bean的class的完整类名#编号编号是从0开始的，同种类型的没有指定名称的依次递增。
+    另外第一个有别名，别名为class的完整类名
+    -->
+    <bean  class="com.huangxl.springstudy.studycode.code02.Student"/>
+    <bean  class="com.huangxl.springstudy.studycode.code02.Student"/>
+
+    <bean class="java.lang.String" />
+    <bean class="java.lang.String" />
+
+    <!-- 通过 alias标签指定别名 -->
+    <bean id="student6" class="com.huangxl.springstudy.studycode.code02.Student"/>
+    <alias name="student6" alias="student6-A"/>
+    <alias name="student6" alias="student6-B"/>
+    <alias name="student6" alias="student6-C"/>
+</beans>
