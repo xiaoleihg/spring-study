@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="staticFactoryScore1" class="com.huangxl.springstudy.studycode.code03.ScoreStaticFactory"
+    factory-method="buildScoreEntity1"/>
+
+    <bean id="staticFactoryScore2" class="com.huangxl.springstudy.studycode.code03.ScoreStaticFactory"
+          factory-method="buildScoreEntity2">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="95.5"/>
+        <constructor-arg index="2" value="静态无参方法buildScoreEntity2的创建ScoreEntity"/>
+    </bean>
+</beans>

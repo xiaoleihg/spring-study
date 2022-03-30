@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 通过实现FactoryBean接口来实例化bean，只需要配置一个接口实现类的bean就行了 -->
+    <bean id="scoreFactoryBean" class="com.huangxl.springstudy.studycode.code03.ScoreFactoryBean"/>
+
+</beans>

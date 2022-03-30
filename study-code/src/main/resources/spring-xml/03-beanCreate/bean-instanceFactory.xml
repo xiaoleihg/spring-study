@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 定义一个工厂实例，简单想想也能知道，ScoreInstanceFactory里面的方法并没有static修饰，无法直接调用，必须先创建一个实例对象才能调用 -->
+    <bean id="scoreInstanceFactory" class="com.huangxl.springstudy.studycode.code03.ScoreInstanceFactory"/>
+
+    <!-- 通过上边创建的scoreInstanceFactory 的无参方法build1创建Score的实例，要指定factory-bean -->
+    <bean id="instanceFactoryScore1"  factory-bean="scoreInstanceFactory" factory-method="build1"/>
+
+    <!-- 通过上边创建的scoreInstanceFactory 的有参方法build2创建Score的实例，要指定factory-bean -->
+    <bean id="instanceFactoryScore2" factory-bean="scoreInstanceFactory" factory-method="build2">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="96.5"/>
+        <constructor-arg index="2" value="通过无参实例工厂方法创建的ScoreEntity实例"/>
+    </bean>
+</beans>

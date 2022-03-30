@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 这里说的是spring容器创建bean实例对象的方式，关于constructor-arg标签后面会在依赖注入详细介绍，
+     这里只要知道constructor-arg是给构造方法参数设置值的标签就行了-->
+    <!-- 通过ScoreEntity的有参构造方法创建ScoreEntity对象 -->
+    <bean id="score" class="com.huangxl.springstudy.studycode.code03.ScoreEntity">
+        <!-- index表示参数的位置，0表示第一个参数，1表示第二个参数，以此类推 -->
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="92.5"/>
+        <constructor-arg index="2" value="我是有参构造方法创建的ScoreEntity"/>
+    </bean>
+    <!-- 通过ScoreEntity的无参构造方法创建ScoreEntity对象 -->
+    <bean id="score1" class="com.huangxl.springstudy.studycode.code03.ScoreEntity"/>
+
+    <!-- 注意constructor-arg中value和ref不能同时存在 -->
+    <bean id="student" class="com.huangxl.springstudy.studycode.code03.StudentEntity">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="我是有参构造方法2创建的StudentEntity"/>
+        <constructor-arg index="2" ref="score"/>
+    </bean>
+</beans>
