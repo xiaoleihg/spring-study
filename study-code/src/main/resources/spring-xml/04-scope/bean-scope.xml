@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- scope属性指定作用域，默认就是singleton，而且idea也给出提示。 -->
+    <bean id="singletonScopeModel" class="com.huangxl.springstudy.studycode.code04.ScopeModel" scope="singleton">
+        <constructor-arg name="beanScope" value="singleton"/>
+    </bean>
+
+    <!-- scope指定为prototype，这就是一个原型bean，在测试类的testPrototype中可以看到 -->
+    <bean id="prototypeScopeModel" class="com.huangxl.springstudy.studycode.code04.ScopeModel" scope="prototype">
+        <constructor-arg name="beanScope" value="prototype"/>
+    </bean>
+
+    <!-- scope指定为自定义的custom值 -->
+    <bean class="com.huangxl.springstudy.studycode.code04.CustomScopeProcessor"/>
+    <bean id="customScopeModel" class="com.huangxl.springstudy.studycode.code04.ScopeModel" scope="custom">
+        <constructor-arg name="beanScope" value="custom"/>
+    </bean>
+</beans>

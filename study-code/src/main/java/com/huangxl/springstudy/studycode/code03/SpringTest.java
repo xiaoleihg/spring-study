@@ -17,7 +17,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringTest {
 
     /**
-     * 通过反射调用构造方法创建bean对象
+     * 通过反射调用构造方法创建bean对象,
+     * 另外，通过StudentEntity的构造方法中的打印内容可知：
+     * 构造方法是在容器启动过程中调用的，说明这个bean实例在容器启动过程中就创建好了，放在容器中缓存着
      */
     @Test
     public void testConstructor() {
