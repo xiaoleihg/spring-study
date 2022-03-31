@@ -72,7 +72,8 @@ public class SpringTest {
 
     /**
      * 通过FactoryBean创建bean对象,即实现FactoryBean接口
-     * 我们在xml里面配置的是实现类的bean，但是获取到的bean对象是接口泛型的类的对象，
+     * 我们在xml里面配置的是实现类的bean，但是获取到的bean对象是getObject的对象，
+     * 简单来说，spring容器getBean的时候会判断是不是FactoryBean，是的话会调用getObject方法得到bean实例
      */
     @Test
     public void testFactoryBean(){
